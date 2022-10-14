@@ -17,6 +17,7 @@ def index():
     #Get the geo-city entity from the dialogflow fullfilment request.
     body = request.json
     dep_city= body['queryResult']['parameters']['dep']
+    
 
     appId = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZTcyNWNlOGRhYjg3NTA0YTlhY2Q0OGM0MDMyYmNkODk3M2RiZTBiYmExMWQ1MDI3OWIxNzNkYjA1NmUyMGM4NWU2YzEwYWIxMjc1ODBmNGYiLCJpYXQiOjE2NjU2MDkyNDIsIm5iZiI6MTY2NTYwOTI0MiwiZXhwIjoxNjk3MTQ1MjQxLCJzdWIiOiIxNDkyNCIsInNjb3BlcyI6W119.m_32z-sDadzteKBWVArGhej-7PS2Cv7bDJ_MEFVA2_lwLFUHdGyLa9xsbu2921Wb28fUaBAjkVyT7dA0BhlkAQ'
 
@@ -25,7 +26,7 @@ def index():
     headers = {'Content-Type': 'application/json'} #Set the HTTP header for the API request
     response = requests.get(api_url, headers=headers) #Connect to flightlab and read the JSON response.
     iata=response.json() #Convert the JSON string to a dict for easier parsing.
-    dep_iata = str(iata["data"][0]["iata_code"])
+    dep_iata = str(iata[0]["iata_code"])
 
     #build the Dialogflow reply.
     reply = '{"fulfillmentMessages": [ {"text": {"text": ["IATA Code of Airport is '+ dep_iata + '"] } } ]}'
