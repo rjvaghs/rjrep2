@@ -66,3 +66,5 @@ if __name__ == "main":
         app.run(debug=False, host='0.0.0.0', port=port)
     else:
         app.run(debug=True, use_reloader=True, host='0.0.0.0', port=port)
+
+print("hi")
