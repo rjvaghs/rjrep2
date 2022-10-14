@@ -21,7 +21,7 @@ def index():
     appId = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZTcyNWNlOGRhYjg3NTA0YTlhY2Q0OGM0MDMyYmNkODk3M2RiZTBiYmExMWQ1MDI3OWIxNzNkYjA1NmUyMGM4NWU2YzEwYWIxMjc1ODBmNGYiLCJpYXQiOjE2NjU2MDkyNDIsIm5iZiI6MTY2NTYwOTI0MiwiZXhwIjoxNjk3MTQ1MjQxLCJzdWIiOiIxNDkyNCIsInNjb3BlcyI6W119.m_32z-sDadzteKBWVArGhej-7PS2Cv7bDJ_MEFVA2_lwLFUHdGyLa9xsbu2921Wb28fUaBAjkVyT7dA0BhlkAQ'
 
     #Connect to the API to get IATA Codes
-    api_url = "https://app.goflightlabs.com/cities?access_key=" + appId + "&city_name=" + dep_city
+    api_url = "https://app.goflightlabs.com/cities?access_key=" + appId + "&search=" + dep_city
     headers = {'Content-Type': 'application/json'} #Set the HTTP header for the API request
     response = requests.get(api_url, headers=headers) #Connect to flightlab and read the JSON response.
     iata=response.json() #Convert the JSON string to a dict for easier parsing.
